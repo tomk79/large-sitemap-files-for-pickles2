@@ -1,0 +1,13 @@
+{
+    "name": "tomk79/_test_large_sitemap",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tomoya Koyanagi",
+            "email": "tomk79@gmail.com"
+        }
+    ],
+    "require": {
+        "tomk79/filesystem": "1.*"
+    }
+}
