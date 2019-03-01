@@ -1,6 +1,6 @@
-# _test_large_sitemap
+# TEST: large sitemap files for Pickles 2
 
-[Pickles2](http://pickles2.pxt.jp/) に大きいサイズのサイトマップを処理するテストのための、`sitemap.csv` を生成するツールです。
+[Pickles2](http://pickles2.pxt.jp/) に大きいサイズのサイトマップを処理する負荷テストのための、`sitemap.csv` を生成するツールです。
 
 ## Usage
 

@@ -1,0 +1,103 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "fa0e16b1e629519b0828bd2eb7177c0e",
+    "packages": [
+        {
+            "name": "tomk79/filesystem",
+            "version": "1.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tomk79/filesystem.git",
+                "reference": "4f4db2af2ebcb1aad29a5bdf6ba5f7349f776aea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tomk79/filesystem/zipball/4f4db2af2ebcb1aad29a5bdf6ba5f7349f776aea",
+                "reference": "4f4db2af2ebcb1aad29a5bdf6ba5f7349f776aea",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "2.8.*",
+                "phpunit/phpunit": "4.1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "php/filesystem.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tomoya Koyanagi",
+                    "email": "tomk79@gmail.com",
+                    "homepage": "http://www.pxt.jp/"
+                }
+            ],
+            "description": "Simple filesystem utility for PHP.",
+            "keywords": [
+                "filesystem"
+            ],
+            "time": "2018-08-16T01:56:20+00:00"
+        },
+        {
+            "name": "tomk79/request",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tomk79/request.git",
+                "reference": "8fcec933e62dcc08b59f0659db5dcaf0d56186bd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tomk79/request/zipball/8fcec933e62dcc08b59f0659db5dcaf0d56186bd",
+                "reference": "8fcec933e62dcc08b59f0659db5dcaf0d56186bd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "tomk79/filesystem": "1.*"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "2.8.*",
+                "phpunit/phpunit": "4.1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "php/request.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tomoya Koyanagi",
+                    "email": "tomk79@gmail.com"
+                }
+            ],
+            "description": "A request management utilitiy for PHP.",
+            "time": "2018-08-22T09:51:53+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

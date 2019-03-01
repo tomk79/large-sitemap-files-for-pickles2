@@ -1,5 +1,4 @@
 {
-    "name": "tomk79/_test_large_sitemap",
     "license": "MIT",
     "authors": [
         {
@@ -8,7 +7,7 @@
         }
     ],
     "require": {
-        "tomk79/request": "0.*",
+        "tomk79/request": "1.*",
         "tomk79/filesystem": "1.*"
     }
 }
