@@ -8,30 +8,31 @@
     "packages": [
         {
             "name": "tomk79/filesystem",
-            "version": "1.0.8",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tomk79/filesystem.git",
-                "reference": "4f4db2af2ebcb1aad29a5bdf6ba5f7349f776aea"
+                "reference": "48a5b0631a26e883a0c4b57aad3f6178e7197bb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tomk79/filesystem/zipball/4f4db2af2ebcb1aad29a5bdf6ba5f7349f776aea",
-                "reference": "4f4db2af2ebcb1aad29a5bdf6ba5f7349f776aea",
+                "url": "https://api.github.com/repos/tomk79/filesystem/zipball/48a5b0631a26e883a0c4b57aad3f6178e7197bb8",
+                "reference": "48a5b0631a26e883a0c4b57aad3f6178e7197bb8",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=7.3.0"
             },
             "require-dev": {
-                "phpdocumentor/phpdocumentor": "2.8.*",
-                "phpunit/phpunit": "4.1.*"
+                "phpunit/phpunit": "~9.5"
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "php/filesystem.php"
-                ]
+                "psr-4": {
+                    "tomk79\\": [
+                        "php"
+                    ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -41,42 +42,48 @@
                 {
                     "name": "Tomoya Koyanagi",
                     "email": "tomk79@gmail.com",
-                    "homepage": "http://www.pxt.jp/"
+                    "homepage": "https://www.pxt.jp/"
                 }
             ],
             "description": "Simple filesystem utility for PHP.",
             "keywords": [
                 "filesystem"
             ],
-            "time": "2018-08-16T01:56:20+00:00"
+            "support": {
+                "issues": "https://github.com/tomk79/filesystem/issues",
+                "source": "https://github.com/tomk79/filesystem/tree/1.2.2"
+            },
+            "time": "2023-02-11T05:58:46+00:00"
         },
         {
             "name": "tomk79/request",
-            "version": "1.0.2",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tomk79/request.git",
-                "reference": "8fcec933e62dcc08b59f0659db5dcaf0d56186bd"
+                "reference": "66683286ce7ebc5869f233332ffd85decb6caf50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tomk79/request/zipball/8fcec933e62dcc08b59f0659db5dcaf0d56186bd",
-                "reference": "8fcec933e62dcc08b59f0659db5dcaf0d56186bd",
+                "url": "https://api.github.com/repos/tomk79/request/zipball/66683286ce7ebc5869f233332ffd85decb6caf50",
+                "reference": "66683286ce7ebc5869f233332ffd85decb6caf50",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
-                "tomk79/filesystem": "1.*"
+                "php": ">=7.3.0",
+                "tomk79/filesystem": "~1.1"
             },
             "require-dev": {
-                "phpdocumentor/phpdocumentor": "2.8.*",
-                "phpunit/phpunit": "4.1.*"
+                "phpdocumentor/phpdocumentor": "~3.0.0",
+                "phpunit/phpunit": "~9.5"
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "php/request.php"
-                ]
+                "psr-4": {
+                    "tomk79\\": [
+                        "php"
+                    ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -89,7 +96,11 @@
                 }
             ],
             "description": "A request management utilitiy for PHP.",
-            "time": "2018-08-22T09:51:53+00:00"
+            "support": {
+                "issues": "https://github.com/tomk79/request/issues",
+                "source": "https://github.com/tomk79/request/tree/1.4.0"
+            },
+            "time": "2023-02-04T16:40:23+00:00"
         }
     ],
     "packages-dev": [],
@@ -99,5 +110,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }
