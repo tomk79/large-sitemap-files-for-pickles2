@@ -94,7 +94,7 @@ class main{
                 break;
             }
             $csv = array();
-            $pageId = 'page'.$this->page_numer;
+            $pageId = 'page'.$this->page_numer.'-'.urlencode($this->csv_filename);
             array_push($csv, array(
                 'path'=>'/page/'.urlencode($this->csv_filename).'/page_'.$this->page_numer.'.html',
                 'content'=>'',
