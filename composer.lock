@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa0e16b1e629519b0828bd2eb7177c0e",
+    "content-hash": "114f9941a93f2c5b7b8f0f91e0392936",
     "packages": [
         {
             "name": "tomk79/filesystem",
-            "version": "1.2.2",
+            "version": "1.2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tomk79/filesystem.git",
-                "reference": "48a5b0631a26e883a0c4b57aad3f6178e7197bb8"
+                "reference": "bfd57b1d912499426d88697a95e0229c2422aeea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tomk79/filesystem/zipball/48a5b0631a26e883a0c4b57aad3f6178e7197bb8",
-                "reference": "48a5b0631a26e883a0c4b57aad3f6178e7197bb8",
+                "url": "https://api.github.com/repos/tomk79/filesystem/zipball/bfd57b1d912499426d88697a95e0229c2422aeea",
+                "reference": "bfd57b1d912499426d88697a95e0229c2422aeea",
                 "shasum": ""
             },
             "require": {
@@ -51,22 +51,22 @@
             ],
             "support": {
                 "issues": "https://github.com/tomk79/filesystem/issues",
-                "source": "https://github.com/tomk79/filesystem/tree/1.2.2"
+                "source": "https://github.com/tomk79/filesystem/tree/1.2.3"
             },
-            "time": "2023-02-11T05:58:46+00:00"
+            "time": "2023-06-24T15:21:14+00:00"
         },
         {
             "name": "tomk79/request",
-            "version": "1.4.0",
+            "version": "1.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tomk79/request.git",
-                "reference": "66683286ce7ebc5869f233332ffd85decb6caf50"
+                "reference": "069f989dbe19fc8db0ae09ab4dc9444cab61ac32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tomk79/request/zipball/66683286ce7ebc5869f233332ffd85decb6caf50",
-                "reference": "66683286ce7ebc5869f233332ffd85decb6caf50",
+                "url": "https://api.github.com/repos/tomk79/request/zipball/069f989dbe19fc8db0ae09ab4dc9444cab61ac32",
+                "reference": "069f989dbe19fc8db0ae09ab4dc9444cab61ac32",
                 "shasum": ""
             },
             "require": {
@@ -98,14 +98,14 @@
             "description": "A request management utilitiy for PHP.",
             "support": {
                 "issues": "https://github.com/tomk79/request/issues",
-                "source": "https://github.com/tomk79/request/tree/1.4.0"
+                "source": "https://github.com/tomk79/request/tree/1.4.1"
             },
-            "time": "2023-02-04T16:40:23+00:00"
+            "time": "2023-05-01T13:02:18+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,

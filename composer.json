@@ -6,8 +6,31 @@
             "email": "tomk79@gmail.com"
         }
     ],
+    "minimum-stability": "dev",
+    "scripts": {
+        "generate-csv": [
+            "@php generateSitemapCsv.php \"/?max=1000&depth=6&bros=5\"",
+            "@php generateSitemapCsv.php \"/?max=3000&depth=6&bros=5\"",
+            "@php generateSitemapCsv.php \"/?max=5000&depth=6&bros=5\"",
+            "@php generateSitemapCsv.php \"/?max=10000&depth=6&bros=5\"",
+            "@php generateSitemapCsv.php \"/?max=20000&depth=6&bros=5\"",
+            "@php generateSitemapCsv.php \"/?max=40000&depth=6&bros=5\"",
+            "@php generateSitemapCsv.php \"/?max=60000&depth=6&bros=5\"",
+            "@php generateSitemapCsv.php \"/?max=80000&depth=6&bros=5\"",
+            "@php generateSitemapCsv.php \"/?max=100000&depth=6&bros=10\"",
+            "@php generateBlogmapCsv.php \"/?max=1000\"",
+            "@php generateBlogmapCsv.php \"/?max=3000\"",
+            "@php generateBlogmapCsv.php \"/?max=5000\"",
+            "@php generateBlogmapCsv.php \"/?max=10000\"",
+            "@php generateBlogmapCsv.php \"/?max=20000\"",
+            "@php generateBlogmapCsv.php \"/?max=40000\"",
+            "@php generateBlogmapCsv.php \"/?max=60000\"",
+            "@php generateBlogmapCsv.php \"/?max=80000\"",
+            "@php generateBlogmapCsv.php \"/?max=100000\""
+        ]
+    },
     "require": {
-        "tomk79/request": "1.*",
-        "tomk79/filesystem": "1.*"
+        "tomk79/request": "~1.1",
+        "tomk79/filesystem": "~1.1"
     }
 }

@@ -7,7 +7,7 @@
 ### サイトマップCSVを生成する
 
 ```bash
-$ php generateSitemapCsv.php "/?max=10000&bros=5&depth=6"
+$ php generateSitemapCsv.php "/?max=10000&depth=6&bros=5"
 ```
 
 `/dist` の中にCSVファイルが出力されます。

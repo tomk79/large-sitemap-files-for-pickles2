@@ -7,6 +7,8 @@ class main{
     private $conf;
     private $path_blogmapCsv;
     private $page_numer = 0;
+    private $csv_filename;
+    private $csv_filefullname;
 
     public function __construct(){
         $this->fs = new \tomk79\filesystem();
@@ -27,7 +29,8 @@ class main{
             $this->conf->max = 5000;
         }
 
-        $this->csv_filename = 'blogmap_max'.intval($this->conf->max).'.csv';
+        $this->csv_filename = 'blogmap_max'.intval($this->conf->max);
+        $this->csv_filefullname = $this->csv_filename.'.csv';
     }
 
     public function kick(){
@@ -36,7 +39,7 @@ class main{
     }
 
     private function init(){
-        $this->fs->rm( $this->path_blogmapCsv.$this->csv_filename );
+        $this->fs->rm( $this->path_blogmapCsv.$this->csv_filefullname );
         $this->page_numer = 0;
         $csv = array();
         array_push($csv, array(
@@ -47,7 +50,7 @@ class main{
             "article_summary" => "* article_summary",
             "article_keywords" => "* article_keywords",
         ));
-        error_log( $this->fs->mk_csv($csv), 3, $this->path_blogmapCsv.$this->csv_filename );
+        error_log( $this->fs->mk_csv($csv), 3, $this->path_blogmapCsv.$this->csv_filefullname );
     }
 
     private function execute(){
@@ -61,14 +64,14 @@ class main{
             $str_date = date('Y-m-d', $date_base + ($this->page_numer*60*60*24));
             array_push($csv, array(
                 'title'=>'Page '.$this->page_numer.'/'.intval($this->conf->max).'',
-                'path'=>'/page/page_'.$this->page_numer.'_'.intval($this->conf->max).'.html',
+                'path'=>'/page/'.urlencode($this->csv_filename).'/page_'.$this->page_numer.'_'.intval($this->conf->max).'.html',
                 "release_date" => $str_date,
                 "update_date" => $str_date,
                 "article_summary" => "",
                 "article_keywords" => "",
             ));
-            var_dump('/page/page_'.$this->page_numer.'.html');
-            error_log( $this->fs->mk_csv($csv), 3, $this->path_blogmapCsv.$this->csv_filename );
+            var_dump('/page/'.urlencode($this->csv_filename).'/page_'.$this->page_numer.'.html');
+            error_log( $this->fs->mk_csv($csv), 3, $this->path_blogmapCsv.$this->csv_filefullname );
             $this->page_numer ++;
         }
 

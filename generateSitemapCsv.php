@@ -7,6 +7,8 @@ class main{
     private $conf;
     private $path_sitemapCsv;
     private $page_numer = 0;
+    private $csv_filename;
+    private $csv_filefullname;
 
     public function __construct(){
         $this->fs = new \tomk79\filesystem();
@@ -35,7 +37,8 @@ class main{
             $this->conf->depth = intval( $this->req->get_param('depth') );
         }
 
-        $this->csv_filename = 'sitemap_max'.intval($this->conf->max).'_d'.intval($this->conf->depth).'_b'.intval($this->conf->bros).'.csv';
+        $this->csv_filename = 'sitemap_max'.intval($this->conf->max).'_d'.intval($this->conf->depth).'_b'.intval($this->conf->bros);
+        $this->csv_filefullname = $this->csv_filename.'.csv';
     }
 
     public function kick(){
@@ -44,7 +47,7 @@ class main{
     }
 
     private function init(){
-        $this->fs->rm( $this->path_sitemapCsv.$this->csv_filename );
+        $this->fs->rm( $this->path_sitemapCsv.$this->csv_filefullname );
         $this->page_numer = 0;
         $csv = array();
         array_push($csv, array(
@@ -81,7 +84,7 @@ class main{
             "description" => "",
             "category_top_flg" => "1",
         ));
-        error_log( $this->fs->mk_csv($csv), 3, $this->path_sitemapCsv.$this->csv_filename );
+        error_log( $this->fs->mk_csv($csv), 3, $this->path_sitemapCsv.$this->csv_filefullname );
     }
 
     private function execute($breadcrumb = '', $depth = 0){
@@ -93,7 +96,7 @@ class main{
             $csv = array();
             $pageId = 'page'.$this->page_numer;
             array_push($csv, array(
-                'path'=>'/page/page_'.$this->page_numer.'.html',
+                'path'=>'/page/'.urlencode($this->csv_filename).'/page_'.$this->page_numer.'.html',
                 'content'=>'',
                 'id'=>$pageId,
                 'title'=>'Page '.$this->page_numer.'',
@@ -109,8 +112,8 @@ class main{
                 "description" => "",
                 "category_top_flg" => (strlen($breadcrumb)?'':'1'),
             ));
-            var_dump('/page/page_'.$this->page_numer.'.html');
-            error_log( $this->fs->mk_csv($csv), 3, $this->path_sitemapCsv.$this->csv_filename );
+            var_dump('/page/'.urlencode($this->csv_filename).'/page_'.$this->page_numer.'.html');
+            error_log( $this->fs->mk_csv($csv), 3, $this->path_sitemapCsv.$this->csv_filefullname );
             $this->page_numer ++;
 
             if($depth < $this->conf->depth){
