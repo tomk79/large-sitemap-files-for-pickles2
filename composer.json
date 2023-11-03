@@ -27,10 +27,32 @@
             "@php generateBlogmapCsv.php \"/?max=60000\"",
             "@php generateBlogmapCsv.php \"/?max=80000\"",
             "@php generateBlogmapCsv.php \"/?max=100000\""
+        ],
+        "generate-xlsx": [
+            "@php generateXlsx.php \"/?csv=blogmap_max1000\"",
+            "@php generateXlsx.php \"/?csv=blogmap_max3000\"",
+            "@php generateXlsx.php \"/?csv=blogmap_max5000\"",
+            "@php generateXlsx.php \"/?csv=blogmap_max10000\"",
+            "@php generateXlsx.php \"/?csv=blogmap_max20000\"",
+            "@php generateXlsx.php \"/?csv=blogmap_max40000\"",
+            "@php generateXlsx.php \"/?csv=blogmap_max60000\"",
+            "@php generateXlsx.php \"/?csv=blogmap_max80000\"",
+            "@php generateXlsx.php \"/?csv=blogmap_max100000\"",
+            "@php generateXlsx.php \"/?csv=sitemap_max1000_d6_b5\"",
+            "@php generateXlsx.php \"/?csv=sitemap_max3000_d6_b5\"",
+            "@php generateXlsx.php \"/?csv=sitemap_max5000_d6_b5\"",
+            "@php generateXlsx.php \"/?csv=sitemap_max10000_d6_b5\"",
+            "@php generateXlsx.php \"/?csv=sitemap_max20000_d6_b5\"",
+            "@php generateXlsx.php \"/?csv=sitemap_max40000_d6_b5\"",
+            "@php generateXlsx.php \"/?csv=sitemap_max60000_d6_b5\"",
+            "@php generateXlsx.php \"/?csv=sitemap_max80000_d6_b5\"",
+            "@php generateXlsx.php \"/?csv=sitemap_max100000_d6_b5\""
         ]
     },
     "require": {
         "tomk79/request": "~1.1",
-        "tomk79/filesystem": "~1.1"
+        "tomk79/filesystem": "~1.1",
+        "pickles2/px-fw-2.x": "~2.1",
+        "pickles2/px2-sitemapexcel": "~2.3"
     }
 }
