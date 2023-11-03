@@ -14,7 +14,7 @@ class main{
 	public function __construct(){
 		ini_set( 'memory_limit', -1 );
 
-		$this->px = new \picklesFramework2\px('./px-files/');
+		$this->px = new \picklesFramework2\px('./src_px2/px-files/');
 
 		$this->fs = new \tomk79\filesystem();
 		$this->req = new \tomk79\request();
