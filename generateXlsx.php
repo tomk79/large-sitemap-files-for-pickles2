@@ -12,6 +12,7 @@ class main{
 	private $xlsx_filefullname;
 
 	public function __construct(){
+		ini_set( 'memory_limit', -1 );
 
 		$this->px = new \picklesFramework2\px('./px-files/');
 
@@ -48,10 +49,14 @@ class main{
 			return;
 		}
 
+		set_time_limit(0);
+
 		$pickles_sitemap_excel = new \tomk79\pickles2\sitemap_excel\pickles_sitemap_excel($this->px);
 		$pickles_sitemap_excel->csv2xlsx($this->path_sitemap_dir.$this->csv_filefullname, $this->path_sitemap_dir.$this->xlsx_filefullname, array(
 			'target' => (preg_match('/^blogmap/i', $this->csv_filename) ? 'blogmap' : 'sitemap'),
 		));
+
+		set_time_limit(30);
 
 		echo '--- done. (at '.date('c').', in '.(time() - $started_at).'sec)'."\n";
 		echo "\n";

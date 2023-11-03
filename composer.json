@@ -46,8 +46,11 @@
             "@php generateXlsx.php \"/?csv=sitemap_max40000_d6_b5\"",
             "@php generateXlsx.php \"/?csv=sitemap_max60000_d6_b5\"",
             "@php generateXlsx.php \"/?csv=sitemap_max80000_d6_b5\"",
-            "@php generateXlsx.php \"/?csv=sitemap_max100000_d6_b5\""
+            "@php generateXlsx.php \"/?csv=sitemap_max100000_d6_b10\""
         ]
+    },
+    "config": {
+        "process-timeout": 0
     },
     "require": {
         "tomk79/request": "~1.1",
