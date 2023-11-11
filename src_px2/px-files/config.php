@@ -214,9 +214,6 @@ return call_user_func( function(){
 	/** タイムゾーン */
 	$conf->default_timezone = 'Asia/Tokyo';
 
-	/** PX Commands のウェブインターフェイスからの実行を許可 */
-	$conf->allow_pxcommands = 1;
-
 	$conf->default_lang = 'ja';
 	$conf->accept_langs = array('ja', 'en');
 
@@ -238,7 +235,7 @@ return call_user_func( function(){
 	 * - または、Pickles 2 上に構築したウェブアプリケーションをサービスとして公開する場合、
 	 *   この値を 0 に設定し、PXコマンド機能を無効にしてください。(この場合でも、CLIからの実行は許可されます)
 	 */
-	$conf->allow_pxcommands = 0;
+	$conf->allow_pxcommands = 1;
 	$conf->sitemap_cache_db_insert_unit_size = 30;
 
 
