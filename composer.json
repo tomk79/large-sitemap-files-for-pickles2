@@ -8,6 +8,9 @@
     ],
     "minimum-stability": "dev",
     "scripts": {
+        "start": [
+            "@php ./src_px2/.px_execute.php \"/?PX=admin.serve&S=localhost:8090\""
+        ],
         "generate-csv": [
             "@php generateSitemapCsv.php \"/?max=1000&depth=6&bros=5\"",
             "@php generateSitemapCsv.php \"/?max=3000&depth=6&bros=5\"",
@@ -56,6 +59,9 @@
         "tomk79/request": "~1.1",
         "tomk79/filesystem": "~1.1",
         "pickles2/px-fw-2.x": "~2.1",
+        "pickles2/px2-clover": "~0.3",
+        "pickles2/px2-blog-kit": "~0.1.0",
+        "pickles2/px2-multitheme": "~2.0",
         "pickles2/px2-sitemapexcel": "~2.3"
     }
 }

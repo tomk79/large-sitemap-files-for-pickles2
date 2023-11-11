@@ -113,6 +113,13 @@ return call_user_func( function(){
 		'index.html',
 	);
 
+	// sitemap
+	$conf->custom_sitemap_definition = array(
+		'release_date' => array(
+			'label' => '公開日',
+			'type' => 'date',
+		),
+	);
 
 	/**
 	 * paths_proc_type
@@ -207,6 +214,13 @@ return call_user_func( function(){
 	/** タイムゾーン */
 	$conf->default_timezone = 'Asia/Tokyo';
 
+	/** PX Commands のウェブインターフェイスからの実行を許可 */
+	$conf->allow_pxcommands = 1;
+
+	$conf->default_lang = 'ja';
+	$conf->accept_langs = array('ja', 'en');
+
+
 	/**
 	 * PX Commands のウェブインターフェイスからの実行を許可
 	 *
@@ -239,6 +253,11 @@ return call_user_func( function(){
 	 * サイトマップ読み込みの前に実行するプラグインを設定します。
 	 */
 	$conf->funcs->before_sitemap = array(
+		// px2-clover
+		tomk79\pickles2\px2clover\register::clover(array(
+			"protect_preview" => false, // プレビューに認証を要求するか？
+		)),
+
 		// PX=clearcache
 		'picklesFramework2\commands\clearcache::register',
 
@@ -247,6 +266,9 @@ return call_user_func( function(){
 
 		// PX=phpinfo
 		'picklesFramework2\commands\phpinfo::register',
+
+		// sitemapExcel
+		'tomk79\pickles2\sitemap_excel\pickles_sitemap_excel::exec',
 	);
 
 	/**
@@ -255,8 +277,29 @@ return call_user_func( function(){
 	 * サイトマップ読み込みの後、コンテンツ実行の前に実行するプラグインを設定します。
 	 */
 	$conf->funcs->before_content = array(
+		// BlogKit
+		\pickles2\px2BlogKit\register::blog( array(
+			"blogs" => array(
+				"blogtest" => array(
+					"orderby" => "update_date",
+					"scending" => "desc",
+					"logical_path" => "/blogtest/{*}",
+				),
+			),
+		) ),
+
 		// PX=api
 		'picklesFramework2\commands\api::register',
+
+		// PX=publish
+		picklesFramework2\commands\publish::register( array(
+			'paths_ignore' => array(
+				"/caches/p/__console_resources/*",
+			),
+		) ),
+
+		// PX=px2dthelper
+		'tomk79\pickles2\px2dthelper\main::register',
 	);
 
 
@@ -272,12 +315,56 @@ return call_user_func( function(){
 	$conf->funcs->processor = new stdClass;
 
 	$conf->funcs->processor->html = array(
+		// ページ内目次を自動生成する
+		'picklesFramework2\processors\autoindex\autoindex::exec',
+
+		// テーマ
+		'theme'=>'tomk79\pickles2\multitheme\theme::exec('.json_encode(array(
+			'param_theme_switch'=>'THEME',
+			'cookie_theme_switch'=>'THEME',
+			'path_theme_collection'=>'./px-files/themes/',
+			'attr_bowl_name_by'=>'data-contents-area',
+			'default_theme_id' => 'new_clover',
+		)).')',
+
+		// Apache互換のSSIの記述を解決する
+		'picklesFramework2\processors\ssi\ssi::exec',
+
+		// broccoli-receive-message スクリプトを挿入
+		'tomk79\pickles2\px2dthelper\broccoli_receive_message::apply('.json_encode( array(
+			// 許可する接続元を指定
+			'enabled_origin'=>array(
+			)
+		) ).')' ,
+
+		// output_encoding, output_eol_coding の設定に従ってエンコード変換する。
+		'picklesFramework2\processors\encodingconverter\encodingconverter::exec',
 	);
 
 	$conf->funcs->processor->css = array(
+		// output_encoding, output_eol_coding の設定に従ってエンコード変換する。
+		'picklesFramework2\processors\encodingconverter\encodingconverter::exec',
 	);
 
 	$conf->funcs->processor->js = array(
+		// output_encoding, output_eol_coding の設定に従ってエンコード変換する。
+		'picklesFramework2\processors\encodingconverter\encodingconverter::exec',
+	);
+
+	$conf->funcs->processor->md = array(
+		// Markdown文法を処理する
+		'picklesFramework2\processors\md\ext::exec',
+
+		// html の処理を追加
+		$conf->funcs->processor->html,
+	);
+
+	$conf->funcs->processor->scss = array(
+		// SCSS文法を処理する
+		'picklesFramework2\processors\scss\ext::exec',
+
+		// css の処理を追加
+		$conf->funcs->processor->css,
 	);
 
 	/**
@@ -297,11 +384,54 @@ return call_user_func( function(){
 
 	/** config for Pickles 2 Desktop Tool. */
 	$conf->plugins->px2dt = new stdClass;
+	$conf->plugins->px2dt->paths_module_template = [
+	];
+	$conf->plugins->px2dt->path_module_templates_dir = "./px-files/modules/";
 
-	// -------- Project Custom Setting --------
-	// プロジェクトが固有に定義する設定を行います。
-	$conf->extra = new stdClass;
+	/** パブリッシュのパターンを登録 */
+	$conf->plugins->px2dt->publish_patterns = array(
+		array(
+			'label'=>'すべて',
+			'paths_region'=> array('/'),
+			'paths_ignore'=> array(),
+			'keep_cache'=>false
+		),
+		array(
+			'label'=>'vendorを除外',
+			'paths_region'=> array('/'),
+			'paths_ignore'=> array('/vendor/'),
+			'keep_cache'=>true
+		),
+		array(
+			'label'=>'マニュアル',
+			'paths_region'=> array('/manual/'),
+			'paths_ignore'=> array('/vendor/'),
+			'keep_cache'=>true
+		),
+	);
 
+	/**
+	 * メインメニューの一覧
+	 */
+	@$conf->plugins->px2dt->main_menu = array(
+		'*home',
+		'*publish',
+		'sample',
+		'*sitemaps',
+		'*themes',
+		'*contents',
+		'*composer',
+		'*modules',
+		'*git',
+		'*clearcache',
+		'*files-and-folders',
+	);
+
+	/**
+	 * CMS画面に追加するカスタム管理画面を登録する
+	 */
+	$conf->plugins->px2dt->custom_console_extensions = array(
+	);
 
 	// -------- PHP Setting --------
 

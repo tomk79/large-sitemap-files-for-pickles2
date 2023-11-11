@@ -4,4 +4,4 @@ scss_cache
 /vendor/
 #composer.lock
 /src_px2/px-files/_sys/ram/
-/src_px2/caches/
+/src_px2/common/px_resources/
