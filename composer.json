@@ -11,6 +11,10 @@
         "start": [
             "@php ./src_px2/.px_execute.php \"/?PX=admin.serve&S=localhost:8090\""
         ],
+        "generate-all": [
+            "composer generate-csv",
+            "composer generate-xlsx"
+        ],
         "generate-csv": [
             "@php generateSitemapCsv.php \"/?max=1000&depth=6&bros=5\"",
             "@php generateSitemapCsv.php \"/?max=3000&depth=6&bros=5\"",
